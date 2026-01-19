@@ -75,12 +75,15 @@ export function CalendarGrid({
                                     onFocus(date);
                                 }}
                                 // onFocus removed: Focus stays on grid container
-                                className={`
-                  p-2 rounded-md text-sm w-full
-                  ${isSelected ? "bg-accent text-white" : ""}
-                  ${isInRange(date) ? "bg-accent/20" : ""}
-                  ${isFocused ? "ring-2 ring-accent" : ""}
-                `}
+                                ${
+                    isSelected
+                                    ? "bg-accent text-white"
+                                    : isInRange(date)
+                                        ? "bg-indigo-50 text-accent font-medium"
+                                        : "hover:bg-gray-100"
+                                }
+                                ${isFocused ? "ring-2 ring-accent" : ""}
+                `
                             >
                                 {date.getDate()}
                             </button>
